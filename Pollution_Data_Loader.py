@@ -10,14 +10,16 @@ from Pollution import Pollution
 
 
 class PollutionDataLoader:
-
+#濃度値ファイルから濃度を読み出すクラス
     def __init__(self, pollutionFileReader):
+
         self.__pollutionFileReader = pollutionFileReader
 
     def Load(self, filePath):
         pollutionFile = self.__pollutionFileReader.Read(filePath)
         #最後の'pollution'のところは絶対に変更しないでください
         pollutionLog = self.__ReadPollutionLogFromFile(pollutionFile, 'pollution')
+        #pollutionオブジェクトに変換
         return Pollution(pollutionLog)
 
 
